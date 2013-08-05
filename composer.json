@@ -1,0 +1,20 @@
+{
+    "name": "rickard2/luhnar",
+    "description": "Validate social security numbers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rickard Andersson",
+            "email": "rickard@0x539.se"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-0": {
+            "Rickard2\\Luhnar\\": ""
+        }
+    }
+}
