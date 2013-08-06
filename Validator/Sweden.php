@@ -22,8 +22,8 @@ class Sweden extends Validator
                 $parsed = $input;
                 break;
 
-            case 11: // YYMMDD-AABB
-                $parsed = str_replace('-', '', $input);
+            case 11: // YYMMDD[-+]AABB
+                $parsed = str_replace(array('-','+'), '', $input);
                 break;
 
             // YYYYMMDDAABB
@@ -31,9 +31,9 @@ class Sweden extends Validator
                 $parsed = substr($input, 2);
                 break;
 
-            case 13: // YYYYYYMMDD-AABB
+            case 13: // YYYYYYMMDD[-+]AABB
                 $parsed = substr($input, 2);
-                $parsed = str_replace('-', '', $parsed);
+                $parsed = str_replace(array('-','+'), '', $parsed);
                 break;
 
             default:
