@@ -9,8 +9,8 @@ Usage:
 
     $validator = new Rickard2\Luhnar\Validator();
 
-    $validator->validate('9909193766, 'se'); // true
-    $validator->validate('9909193776, 'se'); // false
+    $validator->validate('9909193766', 'se'); // true
+    $validator->validate('9909193776', 'se'); // false
 
 The swedish validator will accept input in the following formats:
 
