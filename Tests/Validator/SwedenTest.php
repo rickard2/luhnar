@@ -28,12 +28,14 @@ class SwedenTest extends \PHPUnit_Framework_TestCase
             array('990919-3776', false, '11 digit invalid'),
             array('990919+3766', true, '11 digit valid with plus'),
             array('990919+3776', false, '11 digit invalid with plus'),
+            array('990919_3766', false, '11 digit invalid delimiter'),
             array('199909193766', true, '12 digit valid'),
             array('199909193776', false, '12 digit invalid'),
             array('19990919-3766', true, '13 digit valid'),
             array('19990919-3776', false, '13 digit invalid'),
             array('19990919+3766', true, '13 digit valid with plus'),
             array('19990919+3776', false, '13 digit invalid with plus'),
+            array('19990919_3766', false, '13 digit invalid delimiter'),
             array('Random crap', false, 'random crap'),
         );
     }
