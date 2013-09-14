@@ -17,7 +17,7 @@ class Validator
     protected $countryClassMap = array(
         'se' => '\Rickard2\Luhnar\Validator\Sweden',
         'fi' => '\Rickard2\Luhnar\Validator\Finland',
-        'nl' => '\Richard2\Luhnar\Validator\Netherlands',
+        'nl' => '\Rickard2\Luhnar\Validator\Netherlands',
     );
 
     /**
