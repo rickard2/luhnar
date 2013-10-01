@@ -16,5 +16,6 @@
         "psr-0": {
             "Rickard2\\Luhnar\\": ""
         }
-    }
+    },
+    "target-dir": "Rickard2/Luhnar"
 }
