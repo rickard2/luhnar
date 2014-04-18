@@ -16,7 +16,7 @@ class Finland extends Validator
      */
     public function validate($input)
     {
-        $checkDigit = explode(",", "0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,h,j,k,l,m,n,p,r,s,t,u,v,w,x,y");
+        $checkDigit = explode(',', '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,h,j,k,l,m,n,p,r,s,t,u,v,w,x,y');
 
         // Get the check digit
         $check = strtolower(substr($input, -1, 1));
