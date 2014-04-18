@@ -28,3 +28,7 @@ The finnish validator will accept input in the following formats:
 * DDMMYYCZZZQ
 
 Source: http://en.wikipedia.org/wiki/National_identification_number#Finland
+
+JavaScript Equivalent: https://github.com/rickard2/luhnarjs
+
+Symfony2 validator: https://github.com/rickard2/luhnar-validator
