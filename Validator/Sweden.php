@@ -23,7 +23,7 @@ class Sweden extends Validator
                 break;
 
             case 11: // YYMMDD[-+]AABB
-                $parsed = str_replace(array('-','+'), '', $input);
+                $parsed = str_replace(array('-', '+'), '', $input);
                 break;
 
             // YYYYMMDDAABB
@@ -33,7 +33,7 @@ class Sweden extends Validator
 
             case 13: // YYYYYYMMDD[-+]AABB
                 $parsed = substr($input, 2);
-                $parsed = str_replace(array('-','+'), '', $parsed);
+                $parsed = str_replace(array('-', '+'), '', $parsed);
                 break;
 
             default:
@@ -41,6 +41,15 @@ class Sweden extends Validator
         }
 
         if (!preg_match('/^\d+$/', $parsed)) {
+            return false;
+        }
+
+        // Use DateTime to parse the date and see if it changes
+        $date     = substr($parsed, 0, 6);
+        $dateTime = \DateTime::createFromFormat('ymd', $date);
+
+        // If it changes, it wasn't a valid date (since 991232 will yield 000101)
+        if ($dateTime->format('ymd') !== $date) {
             return false;
         }
 
@@ -54,15 +63,15 @@ class Sweden extends Validator
         for ($i = 0; $i < strlen($parsed); $i++) {
 
             if (($i % 2) == 0) {
-                $tmp = intval($parsed[$i] * 2);
+                $number = intval($parsed[$i] * 2);
             } else {
-                $tmp = intval($parsed[$i]);
+                $number = intval($parsed[$i]);
             }
 
-            if ($tmp > 9) {
-                $result += (1 + ($tmp % 10));
+            if ($number > 9) {
+                $result += (1 + ($number % 10));
             } else {
-                $result += $tmp;
+                $result += $number;
             }
         }
 
