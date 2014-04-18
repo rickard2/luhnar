@@ -21,19 +21,13 @@ class FinlandTest extends \PHPUnit_Framework_TestCase
 
     public function provider()
     {
-        return array(
-            array('311280+999J', true, '11 digit valid, 19th century'),
-            array('311280-999J', true, '11 digit valid, 20th century'),
-            array('311280A999J', true, '11 digit valid, 21st century'),
-            array('311280+999j', true, '11 digit valid, 19th century, lowercase'),
-            array('311280-999j', true, '11 digit valid, 20th century, lowercase'),
-            array('311280a999j', true, '11 digit valid, 21st century, lowercase'),
-            array('311280+999F', false, '11 digit invalid, 19th century'),
-            array('311280-999F', false, '11 digit invalid, 20th century'),
-            array('311280A999F', false, '11 digit invalid, 21st century'),
-            array('311280+999f', false, '11 digit invalid, 19th century, lowercase'),
-            array('311280-999f', false, '11 digit invalid, 20th century, lowercase'),
-            array('311280a999f', false, '11 digit invalid, 21st century, lowercase'),
+        $data = json_decode(file_get_contents(dirname(__FILE__) . '/finland.json'));
+
+        return array_map(
+            function ($item) {
+                return array($item->value, $item->expected, $item->message);
+            },
+            $data
         );
     }
 }

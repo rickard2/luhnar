@@ -21,22 +21,13 @@ class SwedenTest extends \PHPUnit_Framework_TestCase
 
     public function provider()
     {
-        return array(
-            array('9909193766', true, '10 digit valid'),
-            array('9909193776', false, '10 digit invalid'),
-            array('990919-3766', true, '11 digit valid'),
-            array('990919-3776', false, '11 digit invalid'),
-            array('990919+3766', true, '11 digit valid with plus'),
-            array('990919+3776', false, '11 digit invalid with plus'),
-            array('990919_3766', false, '11 digit invalid delimiter'),
-            array('199909193766', true, '12 digit valid'),
-            array('199909193776', false, '12 digit invalid'),
-            array('19990919-3766', true, '13 digit valid'),
-            array('19990919-3776', false, '13 digit invalid'),
-            array('19990919+3766', true, '13 digit valid with plus'),
-            array('19990919+3776', false, '13 digit invalid with plus'),
-            array('19990919_3766', false, '13 digit invalid delimiter'),
-            array('Random crap', false, 'random crap'),
+        $data = json_decode(file_get_contents(dirname(__FILE__) . '/sweden.json'));
+
+        return array_map(
+            function ($item) {
+                return array($item->value, $item->expected, $item->message);
+            },
+            $data
         );
     }
 }
