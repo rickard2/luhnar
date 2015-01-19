@@ -32,6 +32,8 @@ class ValidatorTest extends PHPUnit_FrameWork_TestCase
             array('010203-306W', 'FI', true, 'Valid finnish, uppercase country'),
             array('010204-306W', 'FI', false, 'Invalid finnish, uppercase country'),
             array('clearly invalid', 'FI', false, 'Clearly invalid finnish, uppercase country'),
+            array('', 'SE', true, 'Let empty strings pass'),
+            array('', 'FI', true, 'Let empty strings pass'),
         );
     }
 

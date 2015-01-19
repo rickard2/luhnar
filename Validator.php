@@ -35,6 +35,10 @@ class Validator
             throw new Exception('Unsupported country: ' . $country);
         }
 
+        if (!$input) {
+            return true;
+        }
+
         /** @var \Rickard2\Luhnar\Validator\Validator $validator */
         $validator = new $this->countryClassMap[$country];
 

@@ -58,10 +58,5 @@
         "value": "311280a999f",
         "expected": false,
         "message": "11 digit invalid, 21st century, lowercase"
-    },
-    {
-        "value": "",
-        "expected": false,
-        "message": "empty string"
     }
 ]
